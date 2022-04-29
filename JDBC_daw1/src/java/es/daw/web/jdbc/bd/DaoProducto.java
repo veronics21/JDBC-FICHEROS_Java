@@ -137,19 +137,20 @@ public class DaoProducto implements Dao<Producto>{
     
     @Override
     public void delete(Producto p) throws SQLException{
-        // hacer ps
-        try(PreparedStatement ps=con.prepareStatement("DELETE FROM tienda.producto WHERE codigo=?")){
-            // preparar ps
-            ps.setInt(1, p.getCodigo());
-            // ejecutar ps
-            ps.executeUpdate();
-        }
+        delete(p.getCodigo());
+        
          
     }
     
     @Override
     public void delete(int id) throws SQLException{
-        
+               // hacer ps
+        try(PreparedStatement ps=con.prepareStatement("DELETE FROM tienda.producto WHERE codigo=?")){
+            // preparar ps
+            ps.setInt(1, p.getCodigo());
+            // ejecutar ps
+            ps.executeUpdate();
+        } 
     }
     
     @Override
